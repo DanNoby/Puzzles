@@ -16,12 +16,13 @@ class Table:
     temp[temp.index(0)] = ' '
     return f"{temp[0]} {temp[1]} {temp[2]}\n{temp[3]} {temp[4]} {temp[5]}\n{temp[6]} {temp[7]} {temp[8]}\n"
 
+  # the heuristic here is simply the number of tiles not in their desired spot (as dictated by winState) 
   def CalcHeuristic(self):
     h = 0
     for i in range(len(self.winState)-1):
       if(self.table[i]!=self.winState[i]):
         h = h+1
-    self.heuristic = h
+    self.heuristic = h   
 
   def moves(self):
     possibleMoves = []
@@ -82,7 +83,7 @@ class Table:
       H = [move.heuristic for move in M]
       minHeuristic = min(H)
 
-      # Update backtrackPoss with all other moves, not just the remaining best ones
+      # Update backtrackPoss with all other moves
       bestMove = M[H.index(minHeuristic)]
       for move in M:
         if move==bestMove:
