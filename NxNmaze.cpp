@@ -140,7 +140,7 @@ void Traversal(vector<vector<int>>& maze, int trav, int n) {
 
     maze[0][0] = increment; // Start cell gets the value 1
 
-    if (trav==0 || trav == 1) { // DFS / A*
+    if (trav==0 || trav == 1) { // GBFS / A*
         stack<pair<int, int>> S;
         S.push({0, 0});
 
